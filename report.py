@@ -13,7 +13,7 @@ with open('/var/log/nginx/access.log', 'r') as f:
         ip_counter = Counter(ip_list)
     f.close()
 
-with open('report.txt', 'w') as f:
+with open('./report.txt', 'w') as f:
     for ip in ip_counter:
         f.write(f'{ip} --> {ip_counter[ip]}\n')
     f.close()
