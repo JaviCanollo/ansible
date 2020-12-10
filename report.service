@@ -1,0 +1,6 @@
+[Unit]
+Description=Service file of EOI assignment.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /report.py
