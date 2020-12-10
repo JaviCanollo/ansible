@@ -4,3 +4,6 @@ Description=Service file for EOI assignment.
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/python3 /usr/bin/report.py
+
+[Install]
+WantedBy=multi-user.target
