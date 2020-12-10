@@ -1,6 +1,6 @@
 [Unit]
-Description=Service file of EOI assignment.
+Description=Service file for EOI assignment.
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/python3 ./ansible/report.py
+ExecStart=/usr/bin/python3 /usr/bin/report.py
