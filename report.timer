@@ -2,8 +2,7 @@
 Description=Timer file for EOI assignment.
 
 [Timer]
-OnCalendar=*0,30
-Persistent=True
+OnCalendar=*:0/30
 
 [Install]
 WantedBy=timers.target
