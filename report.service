@@ -1,9 +1,9 @@
 [Unit]
-Description=Service file for EOI assignment.
+Description=Generate nginx access log report
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/python3 /usr/bin/report.py
+ExecStart=/usr/bin/python3 /opt/nginx-metrics-reporter.py
 
 [Install]
 WantedBy=multi-user.target
