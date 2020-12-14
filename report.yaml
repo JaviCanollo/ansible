@@ -1,0 +1,43 @@
+- hosts: all
+  tasks:
+  - name: Install git
+    apt:
+      name: git
+      state: latest
+      update_cache: yes
+
+  - name: Copy files from git repository
+    git:
+      repo: 'https://github.com/JaviCanollo/ansible.git'
+      dest: ./ansible
+
+  - name: Copy file .py
+    copy:
+      src: ansible/report.py
+      dest: /opt/nginx-metrics-reporter.py
+
+  - name: Copy file .service
+    copy:
+      src: ansible/report.service
+      dest: /usr/lib/systemd/system/nginx-metrics-reporter.service
+
+  - name: Copy file .timer
+    copy:
+      src: ansible/report.timer
+      dest: /usr/lib/systemd/system/nginx-metrics-reporter.timer
+
+  - name: Install nginx
+    apt:
+      name: nginx
+      state: latest
+      update_cache: yes
+
+  - name: Re-scan system searching for changes
+    systemd:
+      daemon_reload: yes
+
+  - name: Start .timer
+    systemd:
+      name: nginx-metrics-reporter.timer
+      state: started
+      enabled: yes
